@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+1. In Scenario 1, where users can create and edit stages for a particular board, the primary changes will involve updating the tables and API endpoints related to stages.
+**Tables:**
+1. **Stage Table:**
+   - **Attributes:**
+     - Stage ID (Unique identifier for the stage)
+     - Board ID (Identifier for the board this stage belongs to)
+     - Name (Name of the stage, e.g., ToDo, Working, Reviewing, Completed)
+     - Position (Order of the stage in the board)
+   - Each board will have multiple stages associated with it.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**API Endpoints:**
+1. **Create Stage:**
+   - Endpoint: `POST /boards/{boardId}/stages`
+   - Will allow users to create a new stage for a specific board.
+   - Request Body: Stage details (name, position, etc.).
+   - Response: New stage details.
 
-## Available Scripts
+2. **Update Stage:**
+   - Endpoint: `PUT /boards/{boardId}/stages/{stageId}`
+   - Will allow users to update an existing stage for a specific board.
+   - Request Body: Updated stage details (name, position, etc.).
+   - Response: Updated stage details.
 
-In the project directory, you can run:
+3. **Delete Stage:**
+   - Endpoint: `DELETE /boards/{boardId}/stages/{stageId}`
+   - Will allow users to delete a stage from a specific board.
+   - Response: Success message.
 
-### `npm start`
+4. **Get Stages for a Board:**
+   - Endpoint: `GET /boards/{boardId}/stages`
+   - Will allow users to retrieve all stages associated with a specific board.
+   - Response: List of stages for the specified board.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+By implementing these changes, users will be able to customize the stages for each board according to their specific requirements. The stages will be associated with a particular board, and they can create, update, or delete stages as needed.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. In Scenario 2, where users can comment on tasks, we need to introduce a new table for comments and create corresponding API endpoints to manage these comments.
+**Tables:**
+1. **Comment Table:**
+   - **Attributes:**
+     - Comment ID (Unique identifier for the comment)
+     - Task ID (Identifier for the task this comment belongs to)
+     - User ID (Identifier for the user who made the comment)
+     - Content (Actual content of the comment)
+     - Timestamp (Time when the comment was created)
+   - Each task can have multiple associated comments.
 
-### `npm test`
+**API Endpoints:**
+1. **Create Comment:**
+   - Endpoint: `POST /tasks/{taskId}/comments`
+   - Will allow users to create a new comment for a specific task.
+   - Request Body: Comment details (content, user ID, etc.).
+   - Response: New comment details.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Update Comment:**
+   - Endpoint: `PUT /comments/{commentId}`
+   - AWill allow users to update an existing comment.
+   - Request Body: Updated comment details (content, etc.).
+   - Response: Updated comment details.
 
-### `npm run build`
+3. **Delete Comment:**
+   - Endpoint: `DELETE /comments/{commentId}`
+   - Will allow users to delete a comment.
+   - Response: Success message.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Get Comments for a Task:**
+   - Endpoint: `GET /tasks/{taskId}/comments`
+   - Will allow users to retrieve all comments associated with a specific task.
+   - Response: List of comments for the specified task.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+By implementing these changes, users will be able to comment on individual tasks. Comments will be associated with a specific task and can be created, updated, or deleted by the users. This enhances collaboration and communication within the task management system.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Will do error handling using HTTP Status Codes returned by the server (e.g., 200 for success, 400 for client error, 500 for server error). will use Axios interceptors to globally handle errors and responses from API calls. Using React Error Boundaries to catch errors during rendering, in lifecycle methods, and in constructors. Displaing a fallback UI to the user in case of errors within a specific component. Handling scenarios where the user's device loses network connectivity during an API call. Willl write automated tests (e.g., unit tests, integration tests) to cover error scenarios and ensure proper error handling in different parts of the application.
