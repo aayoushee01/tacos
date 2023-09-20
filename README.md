@@ -1,6 +1,7 @@
 1. In Scenario 1, where users can create and edit stages for a particular board, the primary changes will involve updating the tables and API endpoints related to stages.
+
 **Tables:**
-1. **Stage Table:**
+   **Stage Table:**
    - **Attributes:**
      - Stage ID (Unique identifier for the stage)
      - Board ID (Identifier for the board this stage belongs to)
@@ -35,7 +36,7 @@ By implementing these changes, users will be able to customize the stages for ea
 
 2. In Scenario 2, where users can comment on tasks, we need to introduce a new table for comments and create corresponding API endpoints to manage these comments.
 **Tables:**
-1. **Comment Table:**
+   **Comment Table:**
    - **Attributes:**
      - Comment ID (Unique identifier for the comment)
      - Task ID (Identifier for the task this comment belongs to)
